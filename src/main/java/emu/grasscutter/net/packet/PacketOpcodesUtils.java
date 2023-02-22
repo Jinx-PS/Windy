@@ -9,7 +9,7 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 import emu.grasscutter.GameConstants;
-import emu.grasscutter.grasscutter;
+import emu.grasscutter.Grasscutter;
 import emu.grasscutter.utils.JsonUtils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -27,7 +27,13 @@ public class PacketOpcodesUtils {
         PacketOpcodes.WorldPlayerRTTNotify,
         PacketOpcodes.UnionCmdNotify,
         PacketOpcodes.QueryPathReq,
-        PacketOpcodes.QueryPathRsp
+        PacketOpcodes.QueryPathRsp,
+        
+        // Satiation sends these every tick
+        PacketOpcodes.PlayerTimeNotify,
+        PacketOpcodes.PlayerGameTimeNotify,
+        PacketOpcodes.AvatarPropNotify,
+        PacketOpcodes.AvatarSatiationDataNotify
     );
 
     static {
@@ -59,7 +65,7 @@ public class PacketOpcodesUtils {
                     .collect(Collectors.toMap(Int2ObjectMap.Entry::getIntKey, Int2ObjectMap.Entry::getValue, (k, v) -> v, TreeMap::new));
             // Write to file
             writer.write(JsonUtils.encode(packetIds));
-            grasscutter.getLogger().info("Dumped packet ids.");
+            Grasscutter.getLogger().info("Dumped packet ids.");
         } catch (IOException e) {
             e.printStackTrace();
         }
