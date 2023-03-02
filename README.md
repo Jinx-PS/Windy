@@ -1,5 +1,9 @@
-# Windy Implementaion For Your PS!
+# [Discontinued] Windy Implementaion For Your PS!
 virus
+- This repository has ben discontinued and will not update, It will be open for read so you may update it yourself.
+
+## Info
+Ver: 3.4
 
 ## Credits
 - [Mintygingy](https://github.com/mintygingy) - [SobSeed](https://github.com/mintygingy/SobSeed)
